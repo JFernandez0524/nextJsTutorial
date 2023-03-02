@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useState } from 'react';
 
 function Header({ title }) {
@@ -10,7 +11,7 @@ export default function HomePage() {
   const [likes, setLikes] = useState(0);
 
   function handleClick() {
-    setLikes(likes + 1);
+    setLikes((prevLikes) => prevLikes + 1);
   }
 
   return (
@@ -23,6 +24,11 @@ export default function HomePage() {
       </ul>
 
       <button onClick={handleClick}>Like ({likes})</button>
+      <div>
+        <h1 className='title'>
+          Read <Link href='/posts/first-post'>this page!</Link>
+        </h1>
+      </div>
     </div>
   );
 }
